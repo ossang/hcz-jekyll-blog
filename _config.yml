@@ -1,9 +1,9 @@
-title: John Smith
-description: My Personal Blog
-author: John Smith
-logo: /hcz-jekyll-blog/static/img/avatar.png
-github: https://github.com/codeasashu
-about: Freelance developer
+title: Oh Sang Heon
+description: Developer Blog
+author: Oh Sang Heon
+logo: /ossang.github.io/static/img/avatar.png
+github: https://github.com/ossang/ossang.github.io
+about: Korean developer
 
 baseurl: ""
 url: ""
