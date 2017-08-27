@@ -1,12 +1,12 @@
 [
   {
-    "text": "Home",
+    "text": "Java",
     "url": "/",
     "icon": "fa-home",
     "layout": "post"
   },
   {
-    "text": "About",
+    "text": "Angular",
     "url": "/about/",
     "icon": "fa-comments"
   },
@@ -16,12 +16,12 @@
     "icon": "fa-desktop"
   },
   {
-    "text": "Resume",
+    "text": "Tip & Tech",
     "url": "/#",
     "icon": "fa-graduation-cap",
   },
   {
-    "text": "Github",
+    "text": "Utils",
     "url": "/#",
     "icon": "fa-github"
   },
