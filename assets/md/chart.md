@@ -1,4 +1,4 @@
-# PIE Chart
+# PIE Chart (STATIC)
 ---
 ```typescript
 export class ChartPieSampleComponent {
@@ -21,6 +21,37 @@ export class ChartPieSampleComponent {
   }
 }
 ```
+
+# PIE Chart (DYNAMIC)
+---
+```typescript
+export class ChartPieSample2Component {
+
+  dynamicPieChartConfig : OlibChartPieConfig;
+
+  constructor() {
+    this.dynamicPieChartConfig = new OlibChartPieConfig;
+    this.dynamicPieChartConfig.$title = "dynamic";
+    this.dynamicPieChartConfig.$isDynamicData = true;
+    this.dynamicPieChartConfig.$updateTime = 5000;
+    this.ramdomData();
+
+    setInterval(()=>{
+      this.ramdomData();
+    },this.dynamicPieChartConfig.$updateTime);
+  }
+
+  ramdomData(){
+    let datas = [];
+    let cnt = Math.round((Math.random() % 10) * 10);
+    for(let i =0; i<cnt; i++){
+      datas[i] = {name:"label - "+i,value:Math.random()*1000}
+    }
+    this.dynamicPieChartConfig.$data = datas;
+  }
+}
+```
+
 <br>
 
 ```html
@@ -29,7 +60,7 @@ export class ChartPieSampleComponent {
 
 <br><br><br>
 
-# BAR Chart
+# BAR Chart (STATIC)
 ---
 ```typescript
 export class ChartBarSampleComponent {
@@ -44,6 +75,40 @@ export class ChartBarSampleComponent {
   }
 }
 ```
+
+# BAR Chart (DYNAMIC)
+---
+```typescript
+export class ChartBarSample2Component {
+
+  dynamicBarChartConfig : OlibChartBarConfig;
+
+  constructor() { 
+    this.dynamicBarChartConfig = new OlibChartBarConfig;
+    this.dynamicBarChartConfig.$isVertical = false;
+    this.dynamicBarChartConfig.$isDynamicData = true;
+    this.dynamicBarChartConfig.$updateTime = 5000;
+
+    this.ramdomData();
+
+    setInterval(()=>{
+      this.ramdomData();
+    },this.dynamicBarChartConfig.$updateTime);
+  }
+
+  ramdomData(){
+    let categorys = [];
+    let values = [];
+    for(let i =0; i<10; i++){
+      categorys[i]="category "+i;
+      values[i]=Math.random()*1000;
+    }
+    this.dynamicBarChartConfig.$categorys = categorys;
+    this.dynamicBarChartConfig.$values = values;
+  }
+}
+```
+
 <br>  
 
 ```html
@@ -78,3 +143,29 @@ export class ChartLineSampleComponent {
 ```
 
 <br><br><br>
+
+# TEXT
+---
+```typescript
+export class ChartTextSampleComponent implements OnInit {
+
+  @Input("status")
+  status : any;
+
+  config : OlibChartTextConfig;
+
+  constructor() { }
+
+  ngOnInit() {
+    this.config = new OlibChartTextConfig;
+    this.config.$status = this.status;
+    this.config.$title = "sample title";
+    this.config.$value = 99999;
+  }
+}
+```
+<br>
+
+```html
+<olib-chart-text [config]="config"></olib-chart-text>
+```
